@@ -1,9 +1,9 @@
 #include "main.h"
 /**
  * print_last_digit - main function
- * @d: function
+ * @x: function
  *
- * Return:0 
+ * Return:0
  */
 int print_last_digit(int x)
 {
@@ -13,7 +13,7 @@ int print_last_digit(int x)
 		_putchar('0' + x);
 		return (x);
 	}
-	else if (< 0)
+	else if (x < 0)
 	{
 		x = (x * -1);
 		_putchar('0' + x);
