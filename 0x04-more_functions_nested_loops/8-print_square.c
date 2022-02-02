@@ -1,10 +1,11 @@
 #include "main.h"
+
 /**
- * print_square - prints a square
- * @size: counts the size of the file
- *
- * Return: 0
- */
+* print_square - function that prints square
+* @size: number of # in the square
+* Return: Void
+*/
+
 void print_square(int size)
 {
 	int x;
@@ -13,7 +14,10 @@ void print_square(int size)
 	for (x = 0; x < size; x++)
 	{
 		for (y = 0; y < size; y++)
-			_putchar(23);
-			_putchar('\n');
+		{
+			_putchar(35);
+		}
+		_putchar('\n');
 	}
+	_putchar('\n');
 }
