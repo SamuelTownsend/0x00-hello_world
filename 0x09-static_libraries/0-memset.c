@@ -1,19 +1,17 @@
 #include "main.h"
 /**
- * _memcpy - main function
- * @dest: first variable
- * @src: second variable
+ * _memset - primary function
+ * @s: first variable
+ * @b: second variable
  * @n: third variable
- * Return: 0
+ * Return: void
  */
 
-char *_memcpy(char *dest, char *src, unsigned int n)
+char *_memset(char *s, char b, unsigned int n)
 {
 	unsigned int i;
 
 	for (i = 0; i < n; i++)
-	{
-		dest[i] = src[i];
-	}
-	return (dest);
+		s[i] = b;
+	return (s);
 }
