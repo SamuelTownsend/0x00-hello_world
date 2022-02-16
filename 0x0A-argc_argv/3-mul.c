@@ -1,20 +1,14 @@
 #include "main.h"
 #include <stdlib.h>
 /*
- */
-int main(int argc, char *argv[])
+*/ int main(int argc, char *argv[])
+
 {
-	if (argc <3 && argc > 1
-	{
-		int total = 1;
-		int one = 1;
-	for (; total < argc; total++)
-	{
-		one *= atoi(argv[total]);
-	}
-	printf("%d\n", one);
-	}
-	else
-	printf("error\n");
-	return (0);
+if (argc != 3)
+{
+printf("Error\n");
+return (1);
+}
+printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
+return (0);
 }
