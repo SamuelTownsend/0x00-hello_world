@@ -1,7 +1,6 @@
 #include "main.h"
 /*
-*/
-int main(int argc, char *argv[])
+*/int main(int argc, char *argv[])
 {
 int x;
 for (x = 0; x < argc; x++)
