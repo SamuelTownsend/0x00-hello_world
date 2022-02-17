@@ -1,23 +1,19 @@
 #include "main.h"
+#include <stdlib.h>
+/*
+ */char *create_array(unsigned int size, char c)
 
-/**
- * Malloc
-*/
-
-char *create_array(unsigned int size, char c)
 {
-	char *ptr;
-	unsigned int x;
-
-	ptr = malloc(size * sizeof(char));
-
-	if (size == 0 || ptr == NULL)
-	{
-		return (NULL);
-	}
-	for (x = 0; x < size; x++)
-	{
-		ptr[x] = c;
-	}
-	return (ptr);
+char *x;
+int i = 0;
+if (size == 0)
+return (NULL);
+x = malloc(sizeof(char) * size);
+if (x == NULL)
+return (NULL);
+while (size--)
+{
+x[i++] = c;
+}
+return (x);
 }
