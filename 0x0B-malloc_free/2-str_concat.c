@@ -1,8 +1,5 @@
 #include "main.h"
 #include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-
 /**
 * str_concat - entry point
 * @s1: string 1
