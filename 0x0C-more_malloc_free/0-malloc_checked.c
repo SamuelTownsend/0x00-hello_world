@@ -1,19 +1,15 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
 
-/**
- * malloc_check
- *
- */
+/*
+*/void *malloc_checked(unsigned int b)
 
-void *malloc_checked(unsigned int b)
 {
-	int *ptr;
-
-	ptr = malloc(b);
-
-	if (!ptr)
-	{
-		exit(98);
-	}
-	return (ptr);
+int *p;
+p = malloc(b);
+if (p == NULL)
+exit(98);
+return (p);
 }
