@@ -1,20 +1,17 @@
 #include "main.h"
 
 /**
- * main - check the code
- *
- * Return: Always 0.
- */
+* malloc_checked - allocates memory with malloc
+* @b: amount of space allocated
+* 
+*/
 
 void *malloc_checked(unsigned int b)
-{
-		int *tor;
-		
-		tor = malloc(b);
 
-		if (!tor)
-		{
-			exit(98);
-		}
-		return (tor);
+{
+int *p;
+p = malloc(b);
+if (p == NULL)
+exit(98);
+return (p);
 }
