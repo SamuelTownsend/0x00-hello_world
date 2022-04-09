@@ -1,51 +1,48 @@
 #include "hash_tables.h"
-/*
-*/int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+
+/**
+ * hash_table_set -  adss an element to hash table
+ * if collision adds new node at begining of the list
+ * @ht: hashtable to add/update
+ * @key: The key
+ * @value: value for the key
+ * Return: 1 if success, 0 if failure
+ */
+
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-hash_node_t *element;
-if (ht == NULL)
-return (0);
-element = malloc(sizeof(hash_node_t));
-if (element == NULL)
-return (0);
-element->key = strdup(key);
-element->value = strdup(value);
-insert_element_list(ht, element);
-return (1);
-}
-/*
- */void insert_element_list(hash_table_t *ht, hash_node_t *element)
-{
-unsigned long int index;
-hash_node_t *tmp;
-index = key_index((unsigned char *)element->key, ht->size);
-tmp = ht->array[index];
-if (ht->array[index] != NULL)
-{
-tmp = ht->array[index];
-while (tmp != NULL)
-{
-if (strcmp(tmp->key, element->key) == 0)
-break;
-tmp = tmp->next;
-}
-if (tmp == NULL)
-{
-element->next = ht->array[index];
-ht->array[index] = element;
-}
-else
-{
-free(tmp->value);
-tmp->value = strdup(element->value);
-free(element->value);
-free(element->key);
-free(element);
-}
-}
-else
-{
-element->next = NULL;
-ht->array[index] = element;
-}
+	hash_node_t *search, *new_node = NULL;
+	unsigned long int index;
+	char *new_value = NULL;
+
+	if (!ht || !key || !value)
+		return (0);
+
+	index = key_index((const unsigned char *)key, ht->size);
+
+	search = ht->array[index];
+
+	while (search != NULL)
+	{
+		if (strcmp(search->key, key) == 0)
+		{
+			new_value = strdup(value);
+			free(search->value);
+			search->value = new_value;
+			return (1);
+		}
+		search = search->next;
+	}
+
+	new_node = malloc(sizeof(hash_node_t));
+	if (new_node == NULL)
+	{
+		free(new_node);
+		return (0);
+	}
+	new_node->key = strdup(key);
+	new_node->value = strdup(value);
+	new_node->next = ht->array[index];
+	ht->array[index] = new_node;
+	return (1);
 }
